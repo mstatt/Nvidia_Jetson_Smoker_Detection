@@ -45,19 +45,18 @@ In order to get this project up and running it is assumed that you have already 
 ## Set Up
 
   <p align="center">
-    All you need to do is the following:
+    Get an account on roboflow.com, you will need this to use the inference call.
+Once you set up an account locate your API key.
     <br />
     <ol>
-Get an account on roboflow.com, you will need this to use the inference call.
-Once you set up an account locate your API key.
-<li> Get an API key from roboflow.com</li>
 
+<li> Get an API key from roboflow.com</li>
 <li> Replace the <API KEY> in the smoking_detection.py file with your API Key</li>
 <li> Do not forget to save the file after editing.</li>
 <li> Now you need to give the scripts the correct permissions to be able to run on the Jetson Nano.</li>
 <li> Navigate to the directory containing the (max.sh and the start_smoking_container.sh) files.</li>
 <li> Open a terminal in that directoy and run the following commands.</li>
-```sh
+```
 >> sudo chmod u+x installs.sh
 ```
 <br/>
