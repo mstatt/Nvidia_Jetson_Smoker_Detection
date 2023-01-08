@@ -61,15 +61,15 @@ Once you set up an account locate your API key.
 >> sudo chmod u+x installs.sh
 ```
 <br/>
-```sh
+```
 >> sudo chmod u+x max.sh
 ```
   <br/>
-```sh
+```
 >> sudo chmod u+x start_smoking_container.sh
 ```
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
-```sh
+```
 >> sudo ./start_Smoking_container.sh
 ```
 <li> You may get asked inf you want to install certain libraries etc, type Y and let run.</li>
@@ -95,15 +95,15 @@ Once you set up an account locate your API key.
 >> boost clocks
 ```
 <br/>
-```sh
+```
 >> sudo ./max.sh
 ```
   <li> Now we will start the Smoking detection Docker Container:</li>
-```sh
+```
 >> sudo ./start_Smoking_container.sh
   ```
 <li> Now open another terminal in the same directory and enter the following:</li>
-```sh
+```
 >> python3 smoking_detection.py
 ```
   <li>The initial run may take a few minutes to load and start inferencing based on the Docker container as well as the 2 models the stream runs through. Remember initially we need to detect that a person is there, then we detect if that person has a cigarette.</li>
