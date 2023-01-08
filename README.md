@@ -111,12 +111,12 @@ Once you set up an account locate your API key.
 
 Your display should resemble the images below. Be sure to check the "Smoking" directory for any captured images of smokers.
 
-No Detection           |  Smoker Detected
+Smoker Detected           |  Smoker Detected
 :-------------------------:|:-------------------------:
 ![A1] |  ![B2]  
 
 
-No Detection           |  Smoker Detected
+Smoker Detected           |  Smoker Detected
 :-------------------------:|:-------------------------:
 ![C3] |  ![D4]  
 
@@ -148,7 +148,7 @@ Project Link: [https://github.com/mstatt/Nvidia_Jetson_Smoker_Detection]
 [license-url]: https://github.com/mstatt/Emotion_Detection/blob/main/LICENSE.txt
 [demo-url]: https://www.youtube.com/watch?v=AWB2cEKcME0
 
-[A1]: assets/1.png
-[B2]: assets/2.png
-[C3]: assets/3.png
-[D4]: assets/4.png
+[A1]: assets/1.jpg
+[B2]: assets/2.jpg
+[C3]: assets/3.jpg
+[D4]: assets/4.jpg
