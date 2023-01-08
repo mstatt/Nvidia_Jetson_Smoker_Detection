@@ -15,7 +15,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mstatt/">
+  <a href="https://github.com/mstatt/Nvidia_Jetson_Smoker_Detection">
     <img src="assets/logo.png" alt="Logo" >
   </a>
 </div>
@@ -57,19 +57,21 @@ Once you set up an account locate your API key.
 <li> Now you need to give the scripts the correct permissions to be able to run on the Jetson Nano.</li>
 <li> Navigate to the directory containing the (max.sh and the start_smoking_container.sh) files.</li>
 <li> Open a terminal in that directoy and run the following commands.</li>
-  ```sh
-  >> sudo chmod u+x installs.sh
-  ```
-    ```sh
-  >> sudo chmod u+x max.sh
-  ```
-    ```sh
-  >> sudo chmod u+x start_smoking_container.sh
-  ```
+```sh
+>> sudo chmod u+x installs.sh
+```
+<br/>
+```sh
+>> sudo chmod u+x max.sh
+```
+  <br/>
+```sh
+>> sudo chmod u+x start_smoking_container.sh
+```
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
-    ```sh
-  >> sudo ./start_Smoking_container.sh
-  ```
+```sh
+>> sudo ./start_Smoking_container.sh
+```
 <li> You may get asked inf you want to install certain libraries etc, type Y and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2).</li>
 <li> Upon completion your Nano should reboot.</li>
@@ -89,20 +91,21 @@ Once you set up an account locate your API key.
 <li> Navigate to the root folder of the project.</li>
 <li> First we will boost the performance of the Nano.</li>
 <li> Open a terminal and enter the following:</li>
-    ```sh
-  >> boost clocks
-  ```
-      ```sh
-  >> sudo ./max.sh
-  ```
+```sh
+>> boost clocks
+```
+<br/>
+```sh
+>> sudo ./max.sh
+```
   <li> Now we will start the Smoking detection Docker Container:</li>
-      ```sh
-  >> sudo ./start_Smoking_container.sh
+```sh
+>> sudo ./start_Smoking_container.sh
   ```
 <li> Now open another terminal in the same directory and enter the following:</li>
-      ```sh
-  >> python3 smoking_detection.py
-  ```
+```sh
+>> python3 smoking_detection.py
+```
   <li>The initial run may take a few minutes to load and start inferencing based on the Docker container as well as the 2 models the stream runs through. Remember initially we need to detect that a person is there, then we detect if that person has a cigarette.</li>
 </ol>
 
@@ -126,7 +129,7 @@ No Detection           |  Smoker Detected
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/mstatt/]
+Project Link: [https://github.com/mstatt/Nvidia_Jetson_Smoker_Detection]
 
 
 
