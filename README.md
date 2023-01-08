@@ -57,7 +57,7 @@ Once you set up an account locate your API key.
 <li> Now you need to give the scripts the correct permissions to be able to run on the Jetson Nano.</li>
 <li> Navigate to the directory containing the (max.sh and the start_smoking_container.sh) files.</li>
 <li> Open a terminal in that directoy and run the following commands.</li>
-```sh
+```
 >> sudo chmod u+x installs.sh
 ```
 <br/>
