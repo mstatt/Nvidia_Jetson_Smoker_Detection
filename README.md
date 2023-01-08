@@ -43,7 +43,11 @@ In order to get this project up and running it is assumed that you have already 
 
 <!-- USAGE EXAMPLES -->
 ## Set Up
-
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
   <p align="center">
     All you need to do is the following:
     <br />
