@@ -69,7 +69,7 @@ Once you set up an account locate your API key.
 ```
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
 ```
->> sudo ./start_Smoking_container.sh
+>> sudo ./installs.sh
 ```
 <li> You may get asked inf you want to install certain libraries etc, type Y and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2).</li>
@@ -90,7 +90,7 @@ Once you set up an account locate your API key.
 <li> Navigate to the root folder of the project.</li>
 <li> First we will boost the performance of the Nano.</li>
 <li> Open a terminal and enter the following:</li>
-```sh
+```
 >> boost clocks
 ```
 <br/>
