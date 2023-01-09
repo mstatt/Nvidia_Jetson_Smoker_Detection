@@ -1,6 +1,7 @@
 #!/bin/sh
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install -y python3-setuptools
 sudo apt-get install -y git wget cmake curl
 sudo apt-get install -y jtop
 sudo apt-get install -y python3-numpy python3-pip
