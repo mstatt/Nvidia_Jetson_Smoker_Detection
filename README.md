@@ -2,7 +2,6 @@
 
 <div id="top"></div>
 <div align="center">
-![](https://img.shields.io/badge/NVIDIA-Jetson-brightgreen)
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
 
