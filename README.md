@@ -24,19 +24,19 @@
 
   <p align="center">
     A basic project to deploy a smoker detection application on a Jetson Nano (4GB), using the Jetson-Interface libraries as well as the Roboflow Docker container with a model that I trained, but all running locally. The basics are as follows:
-    The USB camera streams to the initial model to detect a person which then captures the image and sends to the pre-trained model running on the roboflow docker image and checks for the appearence of a cigarette. If a cigarette is detected the model writes "Potential Smoker" to the image and saves it in the Smoking folder for later viewing. If the person is not smoking, the image is deleted from the capture directory.
+    The USB camera streams to the initial model to detect a person which then captures the image and sends to the pre-trained model running on the roboflow docker image and checks for the appearance of a cigarette. If a cigarette is detected the model writes "Potential Smoker" to the image and saves it in the Smoking folder for later viewing. If the person is not smoking, the image is deleted from the capture directory.
     <br />
 
   </p>
   <p align="center">
-    I am aware that this could be furthjer optimized from every Nth frame check to further training the model on Roboflow. My intention was not for perfection but rather for demonstration that this and other CV projects can be developed and deployed on the Jetson architecture. Feel free to fork and build on making this even faster and more accurate.
+    I am aware that this could be further optimized from every Nth frame check to further training the model on Roboflow. My intention was not for perfection but rather for demonstration that this and other CV projects can be developed and deployed on the Jetson architecture. Feel free to fork and build on making this even faster and more accurate.
     <br />
   </p>
 
 
 <!-- REQUIREMENTS -->
 ## Requirements
-<p align="center">
+<p>
 Below are the recommended hardware requirements for this project.
 </p>
 <ol>
@@ -54,7 +54,7 @@ Below are the recommended hardware requirements for this project.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-In order to get this project up and running it is assumed that you have already flashed and set up the Ubuntu desktop enviorment.
+In order to get this project up and running it is assumed that you have already flashed and set up the Ubuntu desktop environment.
 
 
 
@@ -72,7 +72,7 @@ Once you set up an account locate your API key.
 <li> Do not forget to save the file after editing.</li>
 <li> Now you need to give the scripts the correct permissions to be able to run on the Jetson Nano.</li>
 <li> Navigate to the directory containing the (max.sh and the start_smoking_container.sh) files.</li>
-<li> Open a terminal in that directoy and run the following commands.</li>
+<li> Open a terminal in that directory and run the following commands.</li>
 ```
 >> sudo chmod u+x installs.sh
 ```
