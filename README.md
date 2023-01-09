@@ -2,7 +2,7 @@
 
 <div id="top"></div>
 <div align="center">
-![]https://img.shields.io/badge/NVIDIA-Jetson-brightgreen)
+![](https://img.shields.io/badge/NVIDIA-Jetson-brightgreen)
 ![](https://img.shields.io/badge/Language-Python-blue)
 ![](https://img.shields.io/badge/BASH-LINUX-brightgreen)
 
