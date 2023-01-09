@@ -92,6 +92,7 @@ Once you set up an account locate your API key.
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
 >> sudo ./installs.sh
 <li> You may get asked if you want to install certain libraries etc, type Y and let run.</li>
+<li> When prompted with configuration file question: type N and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2) Under the Object Detection heading.</li>
 <li> When you get to the Pytorch installation screen select it and Tab to "Ok".</li>
 <li> The overall time of implementation can vary depending on internet speeds and other factors. It usually takes around 30 minutes.</li>
