@@ -36,11 +36,11 @@
 
 <!-- REQUIREMENTS -->
 ## Requirements
-<p>
-Below are the recommended hardware requirements for this project.
+<p align="center">
+Below are the recommended hardware requirements for this project. I have selected the 128GB microSDXC based on the size of the libraries and dependencies.
 </p>
 <ol>
-<li>NVIDIA Jetson Nano Developer Kit (945-13450-0000-100</li>
+<li>NVIDIA Jetson Nano Developer Kit (945-13450-0000-100)</li>
 <li>SanDisk Ultra microSDXC 128GB 100MB/s SDSQUNR 128G GN6MN</li>
 </ol>
 
