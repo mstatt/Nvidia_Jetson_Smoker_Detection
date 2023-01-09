@@ -169,6 +169,9 @@ Project Link: [https://github.com/mstatt/Nvidia_Jetson_Smoker_Detection]
 Nano Certification URL:
 https://courses.nvidia.com/certificates/a19429d0545b4aa6b209074ed314e5ce
 
+Project Video:
+https://www.youtube.com/watch?v=EPocYfeyTr8
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
