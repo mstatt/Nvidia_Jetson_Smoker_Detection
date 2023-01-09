@@ -29,7 +29,7 @@
 
   </p>
   <p align="center">
-    I am aware that this could be further optimized from every Nth frame check to further training the model on Roboflow. My intention was not for perfection but rather for demonstration that this and other CV projects can be developed and deployed on the Jetson architecture. Feel free to fork and build on making this even faster and more accurate.
+    I am aware that this could be further optimized from every Nth frame check to further training the model on Roboflow. My intention was not for perfection but rather for demonstration that this and other CV projects can be developed and deployed on the Jetson architecture. Feel free to fork and build on making this even faster and more accurate. This project uses a containerized cigarette detection model trained on a roboflow platform using a public dataset (<a href="https://universe.roboflow.com/mike-ovbzu/smoking-detection-08o4g/dataset/2">Model and Dataset</a>).
     <br />
   </p>
 
@@ -43,9 +43,6 @@ Below are the recommended hardware requirements for this project. I have selecte
 <li>NVIDIA Jetson Nano Developer Kit (945-13450-0000-100)</li>
 <li>SanDisk Ultra microSDXC 128GB 100MB/s SDSQUNR 128G GN6MN</li>
 </ol>
-
-
-
 
 
 
@@ -99,7 +96,7 @@ Once you set up an account locate your API key.
 
 
 
-<!-- OUTPUT -->
+<!-- Start Up -->
 ## Start Up
 
   <p align="center">
@@ -145,6 +142,25 @@ Smoker Detected           |  Smoker Detected
 </p>
 
 
+
+
+<!-- Process Diagra -->
+## Process Diagram
+
+  <p align="center">
+    Below is a simple flowchart depicting the flow of the project where you see the 2 distinct methods for inference on the Nvidia Jetson Nano.
+    <br />
+
+![D5]
+
+</p>
+
+
+
+
+
+
+
 <!-- CONTACT -->
 ## Contact
 
@@ -175,3 +191,4 @@ https://courses.nvidia.com/certificates/a19429d0545b4aa6b209074ed314e5ce
 [B2]: assets/2.jpg
 [C3]: assets/3.jpg
 [D4]: assets/4.jpg
+[D5]: assets/flow.png
