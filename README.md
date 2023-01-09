@@ -91,12 +91,13 @@ Once you set up an account locate your API key.
 >> sudo chmod u+x start_smoking_container.sh
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
 >> sudo ./installs.sh
+<li> When prompted with configuration file question: type "N" both times.</li>
+<li> You will be prompted to automatically restart the Docker Daemon, click "No".</li>
 <li> You may get asked if you want to install certain libraries etc, type Y and let run.</li>
-<li> When prompted with configuration file question: type N and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2) Under the Object Detection heading.</li>
 <li> When you get to the Pytorch installation screen select it and Tab to "Ok".</li>
 <li> The overall time of implementation can vary depending on internet speeds and other factors. It usually takes around 30 minutes.</li>
-<li> You will be prompted to automatically restart the Docker Daemon, click "No".</li>
+
 <li> Upon completion your Nano should reboot.</li>
   </p>
 </ol>
