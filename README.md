@@ -52,20 +52,20 @@ Below are the recommended hardware requirements for this project. I have selecte
 ## Getting Started
 
 In order to get this project up and running it is assumed that you have already flashed and set up the Ubuntu desktop environment.
-# Check Swap space<br />
+### Check Swap space<br />
 >> free -m<br />
 >> sudo systemctl disable nvzramconfig<br />
 
-# Create 4GB swap file<br />
+### Create 4GB swap file<br />
 >> sudo fallocate -l 4G /mnt/4GB.swap<br />
 >> sudo chmod 600 /mnt/4GB.swap<br />
 >> sudo mkswap /mnt/4GB.swap<br />
 
-# Append the following line to /etc/fstab<br />
+### Append the following line to /etc/fstab<br />
 >> sudo su<br />
 >> echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab<br />
 >> exit<br />
-# Update again and reboot
+### Update again and reboot
 >> sudo apt-get update<br />
 >> sudo shutdown -r now<br />
 
