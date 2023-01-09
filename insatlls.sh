@@ -81,6 +81,9 @@ sudo apt remove thunderbird libreoffice-* -y
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
 
+
+export OPENBLAS_CORETYPE=ARMV8
+
 # Update again and reboot
 sudo apt-get update
 sudo shutdown -r now
