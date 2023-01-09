@@ -126,7 +126,7 @@ Once you set up an account locate your API key.
 >> python3 smoking_detection.py
   <li>The initial run may take a few minutes to load and start inferencing based on the Docker container as well as the 2 models the stream runs through. Remember initially we need to detect that a person is there, then we detect if that person has a cigarette.</li>
   <li> Please ensure network access is available for the initial run as the weights will need to be downloaded from the Roboflow servers. After that you should be good to go moving forward.</li>
-  <li> Your display may go dark and freeze on the initial run as well, this is just because of the models and resources loading. THis will not happen on subsequent runs.</li>
+  <li> Your display may go dark and freeze on the initial run as well, this is just because of the models and resources loading. This will not happen on subsequent runs.</li>
 </ol>
 
 

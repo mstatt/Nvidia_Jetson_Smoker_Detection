@@ -23,7 +23,7 @@ def smokingDetection(initImg):
         CurlUrl = (
             "base64 "
             + initImg
-            + ' | curl -d @- "http://localhost:9001/smoking-detection-08o4g/2?api_key=<API KEY>"'
+            + ' | curl -d @- "http://localhost:9001/smoking-detection-08o4g/1?api_key=<API KEY>"'
         )
         status, stroutput = subprocess.getstatusoutput(CurlUrl)
         y = json.dumps(stroutput)
