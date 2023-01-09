@@ -165,17 +165,16 @@ Smoker Detected           |  Smoker Detected
   <p align="center">
     You may encounter a few errors upon running the "smoking_detection.py" script. If so here are the fixes potentially required.
     <br />
-    <br />
     <ol>
       <li> Error: "illegal instruction (core dumped)"</li>
-      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.
-      The fix is to run ">> export OPENBLAS_CORETYPE=ARMV8"
-      to avoid running this each time you reboot the nano run this >> echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
+      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.<br />
+      The fix is to run ">> export OPENBLAS_CORETYPE=ARMV8"<br />
+      To avoid running this each time you reboot the nano run this >> echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
       <li> Error: in the start_smoking_container.sh terminal you may see "Downloading wieghts for smoking-detection-o8042/2"</li>
-      The fix 
+      The fix is to wait until the dowload comppletes and you may need to reboot the device.
       <li> Error: "Folder does not exist"</li>
-      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.
-      However you may have to manually create the "Captures" and "Smoking" directories in the same directory as the "smoking_detection.py" script.
+      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.<br />
+      However you may have to manually create the "Captures" and "Smoking" directories in the same directory as the "smoking_detection.py" script.<br />
       </ol>
 
 </p>
