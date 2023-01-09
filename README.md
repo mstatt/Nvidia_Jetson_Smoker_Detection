@@ -45,7 +45,7 @@ In order to get this project up and running it is assumed that you have already 
 ## Set Up
 
   <p align="center">
-    Get an account on roboflow.com, you will need this to use the inference call.
+    Get an account on (<a href="https://roboflow.com/" target="_blank">RoboFlow.com</a>), you will need this to use the inference call.
 Once you set up an account locate your API key.
     <br />
     <ol>
@@ -72,7 +72,8 @@ Once you set up an account locate your API key.
 >> sudo ./installs.sh
 ```
 <li> You may get asked inf you want to install certain libraries etc, type Y and let run.</li>
-<li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2).</li>
+<li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2) Under the Object Detection heading.</li>
+<li> When you get to the Pytorch installation screen select it and Tab to "Ok".</li>
 <li> Upon completion your Nano should reboot.</li>
   </p>
 </ol>
@@ -129,6 +130,9 @@ Smoker Detected           |  Smoker Detected
 ## Contact
 
 Project Link: [https://github.com/mstatt/Nvidia_Jetson_Smoker_Detection]
+
+Nano Certification URL:
+https://courses.nvidia.com/certificates/a19429d0545b4aa6b209074ed314e5ce
 
 
 
