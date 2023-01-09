@@ -74,6 +74,8 @@ git clone https://github.com/NVIDIA-AI-IOT/jetcam
 cd jetcam
 pip3 install ./ --user
 
+echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
+
 sudo apt autoremove -y
 sudo apt clean
 sudo apt remove thunderbird libreoffice-* -y
@@ -85,8 +87,6 @@ sudo mkdir -p /Captures -user
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
 
-
-export OPENBLAS_CORETYPE=ARMV8
 
 # Update again and reboot
 sudo apt-get update
