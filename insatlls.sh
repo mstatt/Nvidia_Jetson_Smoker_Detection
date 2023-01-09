@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y git wget cmake curl
 sudo apt-get install -y jtop
-sudo apt-get install -y python3-dev python3-numpy python3-pip
+sudo apt-get install -y python3-numpy python3-pip
 sudo apt-get install -y libpython3-dev libpng-dev libtiff-dev
 sudo apt-get install -y qtbase5-dev libjpeg-dev
 sudo apt-get install -y build-essential unzip pkg-config
@@ -69,7 +69,9 @@ cd jetcam
 pip3 install ./ --user
 
 
-
+sudo apt autoremove -y
+sudo apt clean
+sudo apt remove thunderbird libreoffice-* -y
 
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
