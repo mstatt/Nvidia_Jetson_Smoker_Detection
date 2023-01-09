@@ -6,7 +6,7 @@
   
 [![Generic badge](https://img.shields.io/badge/NVIDIA-Jetson-brightgreen.svg)](https://shields.io/) 
 ![](https://img.shields.io/badge/Language-Python-blue)
-![](https://img.shields.io/badge/BASH-LINUX-brightgreen)
+[![Generic badge](https://img.shields.io/badge/SHELL-Bash-orange.svg)](https://shields.io/)
 
 
   
