@@ -1,4 +1,4 @@
-# Smoker Detection for Jetson Nano
+# Smoker Detection for Jetson Nano USB Camera
 
 <div id="top"></div>
 <div align="center">
@@ -20,7 +20,7 @@
   </a>
 </div>
 
-## Smoker Detection for Jetson Nano
+## Smoker Detection for Jetson Nano USB Camera
 
   <p align="center">
     A basic project to deploy a smoker detection application on a Jetson Nano (4GB), using the Jetson-Interface libraries as well as the Roboflow Docker container with a model that I trained, but all running locally. The basics are as follows:
