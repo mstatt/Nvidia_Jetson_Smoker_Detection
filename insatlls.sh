@@ -1,9 +1,12 @@
 #!/bin/sh
-sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get update
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update 
+sudo apt-get install -y sublime-tex
 sudo apt-get install -y python3-setuptools
 sudo apt-get install -y git wget cmake curl
-sudo apt-get install -y jtop
 sudo apt-get install -y python3-numpy python3-pip
 sudo apt-get install -y libpython3-dev libpng-dev libtiff-dev
 sudo apt-get install -y qtbase5-dev libjpeg-dev
@@ -21,7 +24,7 @@ sudo apt-get install -y liblapack-dev libeigen3-dev gfortran
 sudo apt-get install -y libhdf5-dev protobuf-compiler python3-venv
 sudo apt-get install -y libprotobuf-dev libgoogle-glog-dev libgflags-dev
 sudo apt-get install -y libcanberra-gtk-module
-sudo apt-get install -y v4l-utils
+sudo apt-get install -y v4l-utils jtop
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update 
@@ -82,17 +85,17 @@ sudo apt remove thunderbird libreoffice-* -y
 sudo docker pull roboflow/inference-server:jetson
 
 
-sudo systemctl disable nvzramconfig
+#sudo systemctl disable nvzramconfig
 
 # Create 4GB swap file
-sudo fallocate -l 4G /mnt/4GB.swap
-sudo chmod 600 /mnt/4GB.swap
-sudo mkswap /mnt/4GB.swap
+#sudo fallocate -l 4G /mnt/4GB.swap
+#sudo chmod 600 /mnt/4GB.swap
+#sudo mkswap /mnt/4GB.swap
 
 # Append the following line to /etc/fstab
-sudo su
-echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab
-exit
+#sudo su
+#echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab
+#exit
 
 
 # Update again and reboot
