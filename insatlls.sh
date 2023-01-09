@@ -30,12 +30,10 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update 
 sudo apt-get install -y sublime-tex
 
-
 sudo -H pip3 install -U jetson-stats
 sudo -H pip3 install Jetson.GPIO
 sudo -H pip3 install roboflow
 sudo -H pip3 install uuid
-
 
 # Download the correct Jetson Interface repo and build it with cmake
 git clone --recursive https://github.com/dusty-nv/jetson-inference
@@ -76,28 +74,12 @@ git clone https://github.com/NVIDIA-AI-IOT/jetcam
 cd jetcam
 pip3 install ./ --user
 
-
 sudo apt autoremove -y
 sudo apt clean
 sudo apt remove thunderbird libreoffice-* -y
 
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
-
-# Check Swap space
-#free -m
-#sudo systemctl disable nvzramconfig
-
-# Create 4GB swap file
-#sudo fallocate -l 4G /mnt/4GB.swap
-#sudo chmod 600 /mnt/4GB.swap
-#sudo mkswap /mnt/4GB.swap
-
-# Append the following line to /etc/fstab
-#sudo su
-#echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab
-#exit
-
 
 # Update again and reboot
 sudo apt-get update
