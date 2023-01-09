@@ -2,9 +2,11 @@
 
 <div id="top"></div>
 <div align="center">
+  
+  
 [![Generic badge](https://img.shields.io/badge/NVIDIA-Jetson-brightgreen.svg)](https://shields.io/) 
 ![](https://img.shields.io/badge/Language-Python-blue)
-![](https://img.shields.io/badge/BASH-LINUX-brightgreen))
+![](https://img.shields.io/badge/BASH-LINUX-brightgreen)
 
 
   
