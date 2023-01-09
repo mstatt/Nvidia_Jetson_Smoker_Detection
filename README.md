@@ -31,8 +31,25 @@
   <p align="center">
     I am aware that this could be furthjer optimized from every Nth frame check to further training the model on Roboflow. My intention was not for perfection but rather for demonstration that this and other CV projects can be developed and deployed on the Jetson architecture. Feel free to fork and build on making this even faster and more accurate.
     <br />
-
   </p>
+
+
+<!-- REQUIREMENTS -->
+## Requirements
+<p align="center">
+Below are the recommended hardware requirements for this project.
+</p>
+<ol>
+<li>NVIDIA Jetson Nano Developer Kit (945-13450-0000-100</li>
+<li>SanDisk Ultra microSDXC 128GB 100MB/s SDSQUNR 128G GN6MN</li>
+</ol>
+
+
+
+
+
+
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -71,9 +88,11 @@ Once you set up an account locate your API key.
 ```
 >> sudo ./installs.sh
 ```
-<li> You may get asked inf you want to install certain libraries etc, type Y and let run.</li>
+<li> You may get asked if you want to install certain libraries etc, type Y and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2) Under the Object Detection heading.</li>
 <li> When you get to the Pytorch installation screen select it and Tab to "Ok".</li>
+<li> The overall time of implementation can vary depending on internet speeds and other factors. It usually takes around 30 minutes.</li>
+<li> You will be prompted to automatically restart the Docker Daemon, click "No".</li>
 <li> Upon completion your Nano should reboot.</li>
   </p>
 </ol>
