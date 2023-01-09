@@ -80,7 +80,7 @@ sudo apt remove thunderbird libreoffice-* -y
 
 #Create image directories
 sudo mkdir -p /Smoking -user
-sudo mkdir -p /Capture -user
+sudo mkdir -p /Captures -user
 
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
