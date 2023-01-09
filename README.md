@@ -3,9 +3,11 @@
 <div id="top"></div>
 <div align="center">
   
+  
+[![Generic badge](https://img.shields.io/badge/NVIDIA-Jetson-brightgreen.svg)](https://shields.io/)
 ![](https://img.shields.io/badge/Language-Python-blue)
-![](https://img.shields.io/badge/BASH-LINUX-brightgreen)
-![](https://img.shields.io/badge/License-MIT-blue)
+[![Generic badge](https://img.shields.io/badge/SHELL-Bash-orange.svg)](https://shields.io/)
+
 
   
 </div>
@@ -52,8 +54,22 @@ Below are the recommended hardware requirements for this project. I have selecte
 ## Getting Started
 
 In order to get this project up and running it is assumed that you have already flashed and set up the Ubuntu desktop environment.
+### Check Swap space<br />
+>> free -m<br />
+>> sudo systemctl disable nvzramconfig<br />
 
+### Create 4GB swap file<br />
+>> sudo fallocate -l 4G /mnt/4GB.swap<br />
+>> sudo chmod 600 /mnt/4GB.swap<br />
+>> sudo mkswap /mnt/4GB.swap<br />
 
+### Append the following line to /etc/fstab<br />
+>> sudo su<br />
+>> echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab<br />
+>> exit<br />
+### Update again and reboot
+>> sudo apt-get update<br />
+>> sudo shutdown -r now<br />
 
 <!-- USAGE EXAMPLES -->
 ## Set Up
@@ -65,31 +81,25 @@ Once you set up an account locate your API key.
     <ol>
 
 <li> Get an API key from roboflow.com</li>
-<li> Replace the <API KEY> in the smoking_detection.py file with your API Key</li>
+<li> Replace the "<-API KEY->" in the smoking_detection.py file with your API Key</li>
 <li> Do not forget to save the file after editing.</li>
 <li> Now you need to give the scripts the correct permissions to be able to run on the Jetson Nano.</li>
 <li> Navigate to the directory containing the (max.sh and the start_smoking_container.sh) files.</li>
 <li> Open a terminal in that directory and run the following commands.</li>
-```
 >> sudo chmod u+x installs.sh
-```
 <br/>
-```
 >> sudo chmod u+x max.sh
-```
   <br/>
-```
 >> sudo chmod u+x start_smoking_container.sh
-```
 <li> Now that your scripts can be ran start all of the required installs by running the following:</li>
-```
 >> sudo ./installs.sh
-```
+<li> When prompted with configuration file question: type "N" both times.</li>
+<li> You will be prompted to automatically restart the Docker Daemon, click "No".</li>
 <li> You may get asked if you want to install certain libraries etc, type Y and let run.</li>
 <li> When you get to the Models options window, please be sure to select (ssd-mobilenet-v2) Under the Object Detection heading.</li>
 <li> When you get to the Pytorch installation screen select it and Tab to "Ok".</li>
 <li> The overall time of implementation can vary depending on internet speeds and other factors. It usually takes around 30 minutes.</li>
-<li> You will be prompted to automatically restart the Docker Daemon, click "No".</li>
+
 <li> Upon completion your Nano should reboot.</li>
   </p>
 </ol>
@@ -107,22 +117,15 @@ Once you set up an account locate your API key.
 <li> Navigate to the root folder of the project.</li>
 <li> First we will boost the performance of the Nano.</li>
 <li> Open a terminal and enter the following:</li>
-```
 >> boost clocks
-```
 <br/>
-```
 >> sudo ./max.sh
-```
   <li> Now we will start the Smoking detection Docker Container:</li>
-```
 >> sudo ./start_Smoking_container.sh
-  ```
 <li> Now open another terminal in the same directory and enter the following:</li>
-```
 >> python3 smoking_detection.py
-```
   <li>The initial run may take a few minutes to load and start inferencing based on the Docker container as well as the 2 models the stream runs through. Remember initially we need to detect that a person is there, then we detect if that person has a cigarette.</li>
+  <li> Please ensure network access is available for the initial run as the weights will need to be downloaded from the Roboflow servers. After that you should be good to go moving forward.</li>
 </ol>
 
 
@@ -156,7 +159,26 @@ Smoker Detected           |  Smoker Detected
 </p>
 
 
+<!-- Process Diagra -->
+## Troubleshooting/Errors
 
+  <p align="center">
+    You may encounter a few errors upon running the "smoking_detection.py" script. If so here are the fixes potentially required.
+    <br />
+    <ol>
+      <li> Error: "illegal instruction (core dumped)"</li>
+      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.<br />
+      The fix is to run ">> export OPENBLAS_CORETYPE=ARMV8"<br />
+      To avoid running this each time you reboot the nano run this >> echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
+      <li> Error: in the start_smoking_container.sh terminal you may see "Downloading wieghts for smoking-detection-o8042/2"</li>
+      The fix is to wait until the dowload completes and you may need to reboot the device.<br/>
+      For more information see: (<a href="https://github.com/roboflow/inference-server">Roboflow Inference Documentation</a>)
+      <li> Error: "Folder does not exist"</li>
+      There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.<br />
+      However you may have to manually create the "Captures" and "Smoking" directories in the same directory as the "smoking_detection.py" script.<br />
+      </ol>
+
+</p>
 
 
 

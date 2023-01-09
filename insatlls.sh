@@ -1,8 +1,13 @@
 #!/bin/sh
+sudo apt-get upgrade
 sudo apt-get update
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update 
+sudo apt-get install -y sublime-tex
+sudo apt-get install -y python3-setuptools
 sudo apt-get install -y git wget cmake curl
-sudo apt-get install -y jtop
-sudo apt-get install -y python3-dev python3-numpy python3-pip
+sudo apt-get install -y python3-numpy python3-pip
 sudo apt-get install -y libpython3-dev libpng-dev libtiff-dev
 sudo apt-get install -y qtbase5-dev libjpeg-dev
 sudo apt-get install -y build-essential unzip pkg-config
@@ -19,14 +24,16 @@ sudo apt-get install -y liblapack-dev libeigen3-dev gfortran
 sudo apt-get install -y libhdf5-dev protobuf-compiler python3-venv
 sudo apt-get install -y libprotobuf-dev libgoogle-glog-dev libgflags-dev
 sudo apt-get install -y libcanberra-gtk-module
-sudo apt-get install -y v4l-utils
-
+sudo apt-get install -y v4l-utils jtop
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update 
+sudo apt-get install -y sublime-tex
 
 sudo -H pip3 install -U jetson-stats
 sudo -H pip3 install Jetson.GPIO
 sudo -H pip3 install roboflow
 sudo -H pip3 install uuid
-
 
 # Download the correct Jetson Interface repo and build it with cmake
 git clone --recursive https://github.com/dusty-nv/jetson-inference
@@ -67,24 +74,18 @@ git clone https://github.com/NVIDIA-AI-IOT/jetcam
 cd jetcam
 pip3 install ./ --user
 
+echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
 
+sudo apt autoremove -y
+sudo apt clean
+sudo apt remove thunderbird libreoffice-* -y
 
+#Create image directories
+sudo mkdir -p /Smoking -user
+sudo mkdir -p /Captures -user
 
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
-
-
-sudo systemctl disable nvzramconfig
-
-# Create 4GB swap file
-sudo fallocate -l 4G /mnt/4GB.swap
-sudo chmod 600 /mnt/4GB.swap
-sudo mkswap /mnt/4GB.swap
-
-# Append the following line to /etc/fstab
-sudo su
-echo "/mnt/4GB.swap swap swap defaults 0 0" >> /etc/fstab
-exit
 
 
 # Update again and reboot
