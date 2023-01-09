@@ -84,7 +84,8 @@ sudo apt remove thunderbird libreoffice-* -y
 #Install and run Yolo5 Docker and Model
 sudo docker pull roboflow/inference-server:jetson
 
-
+# Check Swap space
+#free -m
 #sudo systemctl disable nvzramconfig
 
 # Create 4GB swap file
