@@ -24,16 +24,19 @@ sudo apt-get install -y liblapack-dev libeigen3-dev gfortran
 sudo apt-get install -y libhdf5-dev protobuf-compiler python3-venv
 sudo apt-get install -y libprotobuf-dev libgoogle-glog-dev libgflags-dev
 sudo apt-get install -y libcanberra-gtk-module
-sudo apt-get install -y v4l-utils jtop
+sudo apt-get install -y v4l-utils 
+sudo apt-get install -y jtop
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update 
 sudo apt-get install -y sublime-text
 
+
+sudo -H pip3 install uuid
 sudo -H pip3 install -U jetson-stats
 sudo -H pip3 install Jetson.GPIO
 sudo -H pip3 install roboflow
-sudo -H pip3 install uuid
+
 
 # Download the correct Jetson Interface repo and build it with cmake
 git clone --recursive https://github.com/dusty-nv/jetson-inference
@@ -74,19 +77,24 @@ git clone https://github.com/NVIDIA-AI-IOT/jetcam
 cd jetcam
 pip3 install ./ --user
 
+
+
+#Install and run Yolo5 Docker and Model
+sudo docker pull roboflow/inference-server:jetson
+
+
+
 echo 'export OPENBLAS_CORETYPE=ARMV8' >> ~/.bashrc
 
 sudo apt autoremove -y
 sudo apt clean
 sudo apt remove thunderbird libreoffice-* -y
 
-#Install and run Yolo5 Docker and Model
-sudo docker pull roboflow/inference-server:jetson
+
 
 #Create image directories
 sudo mkdir -p /Smoking -user
 sudo mkdir -p /Captures -user
 
-# Update again and reboot
+# Update again
 sudo apt-get update
-sudo shutdown -r now
