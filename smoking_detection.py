@@ -32,7 +32,8 @@ def smokingDetection(initImg):
         confidence = str(y[x + 14 : x + 19]).strip()
         fconf = float("".join(c for c in confidence if (c.isdigit() or c == ".")))
         #print(str(confidence))
-        if float(fconf) >= float(0.82):
+        #Set the level of Confidence we want to trigger the save
+        if float(fconf) >= float(0.85):
             #print(str(fconf))
             return True
         else:
