@@ -167,6 +167,8 @@ Smoker Detected           |  Smoker Detected
     You may encounter a few errors upon running the "smoking_detection.py" script. If so here are the fixes potentially required.
     <br />
     <ol>
+      <li> No Recognitions or Always showing "Potential Smoker":</li>
+      Fix: adjust up/Down the line 36 ( if float(fconf) >= float(0.978):) in the smoking_detection.py file. <br/>
       <li> Error: "illegal instruction (core dumped)"</li>
       There is a line in the installs.sh that tries to alleviate this issue, but it may have ebncountered permissions issues.<br />
       The fix is to run ">> export OPENBLAS_CORETYPE=ARMV8"<br />

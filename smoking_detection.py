@@ -33,7 +33,7 @@ def smokingDetection(initImg):
         fconf = float("".join(c for c in confidence if (c.isdigit() or c == ".")))
         #print(str(confidence))
         #Set the level of Confidence we want to trigger the save
-        if float(fconf) >= float(0.85):
+        if float(fconf) >= float(0.978):
             #print(str(fconf))
             return True
         else:
@@ -97,7 +97,7 @@ while True:
                 "Potential Smoker",
                 (x1 + 5, y1 + 15),
                 cv2.FONT_HERSHEY_DUPLEX,
-                0.75,
+                1.5,
                 (255, 0, 255),
                 2,
             )
