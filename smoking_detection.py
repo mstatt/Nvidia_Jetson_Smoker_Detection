@@ -8,6 +8,7 @@ import os
 import cv2
 import uuid
 import json
+import math
 import shutil
 import subprocess
 import jetson_inference
@@ -17,14 +18,14 @@ def getResult(z):
     """
     Function to parse json and ectract confidence score
     """
-	try:
-		q = json.loads(z)
-	    #Roboflow Parse
-		strResult = q['predictions'][0]['confidence']
-	except:
-		strResult = 0.00
+    try:
+        q = json.loads(z)
+        #Roboflow Parse
+        strResult = q['predictions'][0]['confidence']
+    except:
+        strResult = 0.00
 
-	return strResult
+    return strResult
 
 
 def smokingDetection(initImg):
@@ -36,7 +37,7 @@ def smokingDetection(initImg):
         CurlUrl = (
             "base64 "
             + initImg
-            + ' | curl -d @- "http://localhost:9001/cigarette_detection-g9e6e/1?api_key=<API KEY>"'
+            + ' | curl -d @- "http://localhost:9001/cigarette_detection-g9e6e/1?api_key=(API-KEY)"'
         )
         status, stroutput = subprocess.getstatusoutput(CurlUrl)
         fconf = float(getResult(stroutput))
@@ -69,54 +70,50 @@ cap = cv2.VideoCapture(0)
 strDir = os.getcwd()
 capturesdir = str(strDir) + "/Captures/"
 smokingDir = str(strDir) + "/Smoking/"
-
-while True:
-    success, img = cap.read()
-    imgCuda = jetson.utils.cudaFromNumpy(img)
-    detections = net.Detect(imgCuda)
-    # GEt dimensions for bounding box.
-    for d in detections:
-        x1, y1, x2, y2, = (
-            int(d.Left),
-            int(d.Top),
-            int(d.Right),
-            int(d.Bottom),
-        )
-        className = net.GetClassDesc(d.ClassID)
-        # 0) Initially we detect if its a person.
-        if className == "person":
-            # Render bounding box
-            cv2.rectangle(img, (x1, y1), (x2, y2), (0,0,255), 2)
-            # 1) Capture image and send to classification model.
-            # Assign a UUID to image name as to avoid collisions
-            imgName = str(uuid.uuid1()) + ".jpg"
-            path1 = capturesdir + imgName
-            path2 = smokingDir + imgName
-            # Write image to Capture Directory
-            cv2.imwrite(path1, img)
-            # 2) Return result of Detection.
-            # 2A) Set smoking variable to true if smoking was detected
-            smoking = smokingDetection(path1)
-            if smoking == True:
-                # 3) Move image to Smoking directory.
-                moveImage(path1, path2)
-                # 4) Add label to bounding box.
-                cv2.putText(
-                img,
-                "Potential Smoker",
-                (x1 + 5, y1 + 15),
-                cv2.FONT_HERSHEY_DUPLEX,
-                1.5,
-                (255, 0, 255),
-                2,
+frameRate = cap.get(5) #frame rate every second
+while(cap.isOpened()):
+    frameId = cap.get(1) #current frame number
+    ret, img = cap.read()
+    if (ret != True):
+        break
+    if (frameId % math.floor(frameRate) == 0):
+        imgCuda = jetson.utils.cudaFromNumpy(img)
+        detections = net.Detect(imgCuda)
+        # GEt dimensions for bounding box.
+        for d in detections:
+            x1, y1, x2, y2, = (
+                int(d.Left),
+                int(d.Top),
+                int(d.Right),
+                int(d.Bottom),
             )
-                # 4) reset smokinng variable to false
-                smoking == False
-            else:
-                # 5) Delete initial image
-                os.remove(path1)
-                # 6) reset smokinng variable to false
-                smoking == False
+            className = net.GetClassDesc(d.ClassID)
+            # 0) Initially we detect if its a person.
+            if className == "person":
+                # Render bounding box
+                cv2.rectangle(img, (x1, y1), (x2, y2), (0,0,255), 2)
+                # 1) Capture image and send to classification model.
+                # Assign a UUID to image name as to avoid collisions
+                imgName = str(uuid.uuid1()) + ".jpg"
+                path1 = capturesdir + imgName
+                path2 = smokingDir + imgName
+                # Write image to Capture Directory
+                cv2.imwrite(path1, img)
+                # 2) Return result of Detection.
+                # 2A) Set smoking variable to true if smoking was detected
+                smoking = smokingDetection(path1)
+                if smoking == True:
+                    # 3) Move image to Smoking directory.
+                    moveImage(path1, path2)
+                    # 4) Add label to bounding box.
+                    cv2.putText(img,"Potential Smoker",(x1 + 5, y1 + 15),cv2.FONT_HERSHEY_DUPLEX,1.5,(255, 0, 255),2,)
+                    # 4) reset smokinng variable to false
+                    smoking == False
+                else:
+                    # 5) Delete initial image
+                    os.remove(path1)
+                    # 6) reset smokinng variable to false
+                    smoking == False
 
 
     cv2.imshow("Image", img)
