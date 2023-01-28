@@ -16,7 +16,7 @@ import jetson.utils
 
 def getResult(z):
     """
-    Function to parse json and ectract confidence score
+    Function to parse json and extract confidence score from return result
     """
     try:
         q = json.loads(z)
