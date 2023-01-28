@@ -13,6 +13,19 @@ import subprocess
 import jetson_inference
 import jetson.utils
 
+def getResult(z):
+    """
+    Function to parse json and ectract confidence score
+    """
+	try:
+		q = json.loads(z)
+	    #Roboflow Parse
+		strResult = q['predictions'][0]['confidence']
+	except:
+		strResult = 0.00
+
+	return strResult
+
 
 def smokingDetection(initImg):
     """
@@ -26,15 +39,10 @@ def smokingDetection(initImg):
             + ' | curl -d @- "http://localhost:9001/smoking-detection-08o4g/1?api_key=<API KEY>"'
         )
         status, stroutput = subprocess.getstatusoutput(CurlUrl)
-        y = json.dumps(stroutput)
-        x = str(y).find("confidence")
-        # Strip extra chars
-        confidence = str(y[x + 14 : x + 19]).strip()
-        confidence.replace("/","")
-        fconf = float("".join(c for c in confidence if (c.isdigit() or c == ".")))
+        fconf = float(getResult(stroutput))
         #print(str(confidence))
         #Set the level of Confidence we want to trigger the save
-        if float(fconf) >= float(0.90):
+        if float(fconf) >= float(0.60):
             #print(str(fconf))
             return True
         else:
